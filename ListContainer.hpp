@@ -1,3 +1,6 @@
+#ifndef LISTCONTAINER_H
+#define LISTCONTAINER_H
+
 #include "base.hpp"
 #include "sort.hpp"
 #include "container.hpp"
@@ -35,3 +38,5 @@ class ListContainer : public Container
         // return container size
         int size();
 };
+
+#endif
