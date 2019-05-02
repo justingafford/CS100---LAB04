@@ -1,3 +1,11 @@
+#ifndef VECTORCONTAINER_H
+#define VECTORCONTAINER_H
+
+#include "base.hpp"
+#include "sort.hpp"
+#include "container.hpp"
+#include <vector>
+
 class VectorContainer : public Container
 {
     protected:
@@ -30,3 +38,5 @@ class VectorContainer : public Container
         // return container size
         int size();
 };
+
+#endif
