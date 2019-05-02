@@ -5,12 +5,13 @@
 #include "sort.hpp"
 #include "container.hpp"
 #include <list>
+#include <iterator>
 
 class ListContainer : public Container
 {
     protected:
         Sort* sort;
-        list<Base*> vcontainer;
+        list<Base*> lcontainer;
 
     public:
         /* Constructors */
