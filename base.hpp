@@ -1,6 +1,10 @@
 #ifndef BASE_HPP
 #define BASE_HPP
 #include <string>
+#include <iostream>;
+
+using namespace std;
+
 class Base {
     public:
 	Base* left;
