@@ -1,6 +1,7 @@
 #include <iostream>
 #include "SelectionSort.hpp"
 
+using namespace std;
 void SelectionSort::sort(Container* container) {
 	for (unsigned i = 0; i < container->size(); i++) {
 		unsigned index = i;
