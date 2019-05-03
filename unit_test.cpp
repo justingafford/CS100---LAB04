@@ -19,6 +19,48 @@ using namespace std;
 TEST(VectorContainerTestSet, SwapTest) {
     	// Setup the elements under test
 	Op* seven = new Op(7);
+	Op* two = new Op(2);
+       	VectorContainer* test_container = new VectorContainer();
+    
+       	// Exercise some functionality of the  test elements
+   	test_container->add_element(seven);
+	test_container->add_element(two);
+    
+      	// Assert that the container has at least a single element
+   	// otherwise we are likely to cause a segfault when accessing
+    	ASSERT_EQ(test_container->size(), 2);
+       	EXPECT_EQ(test_container->at(0)->evaluate(), 7);
+	EXPECT_EQ(test_container->at(1)->evaluate(), 2);
+	
+	test_container->swap(seven, two);
+	EXPECT_EQ(test_container->at(1)->evaluate(), 7);
+	EXPECT_EQ(test_container->at(0)->evaluate(), 2);
+}
+
+TEST(ListContainerTestSet, SwapTest) {
+ 	// Setup the elements under test
+	Op* seven = new Op(7);
+	Op* two = new Op(2);
+       	ListContainer* test_container = new ListContainer();
+    
+       	// Exercise some functionality of the  test elements
+   	test_container->add_element(seven);
+	test_container->add_element(two);
+    
+      	// Assert that the container has at least a single element
+   	// otherwise we are likely to cause a segfault when accessing
+    	ASSERT_EQ(test_container->size(), 2);
+       	EXPECT_EQ(test_container->at(0)->evaluate(), 7);
+	EXPECT_EQ(test_container->at(1)->evaluate(), 2);
+	
+	test_container->swap(seven, two);
+	EXPECT_EQ(test_container->at(1)->evaluate(), 7);
+	EXPECT_EQ(test_container->at(0)->evaluate(), 2);
+}
+        
+TEST(VectorContainerTestSet, PrintTest) {
+ 	// Setup the elements under test
+	Op* seven = new Op(7);
        	VectorContainer* test_container = new VectorContainer();
     
        	// Exercise some functionality of the  test elements
@@ -28,24 +70,25 @@ TEST(VectorContainerTestSet, SwapTest) {
    	// otherwise we are likely to cause a segfault when accessing
     	ASSERT_EQ(test_container->size(), 1);
        	EXPECT_EQ(test_container->at(0)->evaluate(), 7);
-}
+	
+	EXPECT_EQ(test_container->print(), 7);
+}        
 
-
-TEST(ListContainerTestSet, SwapTest) {
+TEST(ListContainerTestSet, PrintTest) {
  	// Setup the elements under test
-       	Op* sixitynine = new Op(69);
-    	ListContainer* test_container = new ListContainer();
-        
-  	// Exercise some functionality of the  test elements
-       	test_container->add_element(sixitynine);
-        
-   	// Assert that the container has at least a single element
-       	// otherwise we are likely to cause a segfault when accessing
-      	ASSERT_EQ(test_container->size(), 1);
-        EXPECT_EQ(test_container->at(0)->evaluate(), 69);
-}
-        
-                                                                       
+	Op* seven = new Op(7);
+       	ListContainer* test_container = new ListContainer();
+    
+       	// Exercise some functionality of the  test elements
+   	test_container->add_element(seven);
+    
+      	// Assert that the container has at least a single element
+   	// otherwise we are likely to cause a segfault when accessing
+    	ASSERT_EQ(test_container->size(), 1);
+       	EXPECT_EQ(test_container->at(0)->evaluate(), 7);
+	
+	EXPECT_EQ(test_container->print(), 7);
+}                                                                       
 
 TEST(SortTestSet, VSelectionSortTest) {
     Op* seven = new Op(7);
