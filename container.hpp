@@ -1,11 +1,9 @@
 #ifndef __CONTAINER_HPP__
 #define __CONTAINER_HPP__
 
-#include "Sort.hpp"
 #include "base.hpp"
 
 class Sort;
-class Base;
 
 class Container {
     protected:
