@@ -10,6 +10,17 @@ ADD_EXECUTABLE(Cmain
  
 ADD_EXECUTABLE(test
    unit_test.cpp
+   Add.cpp
+   Div.cpp
+   Op.cpp
+   Rand.cpp
+   BubbleSort.cpp
+   ListContainer.cpp
+   Mult.cpp
+   Pow.cpp
+   SelectionSort.cpp
+   Sub.cpp
+   VectorContainer.cpp
 )
  
 TARGET_LINK_LIBRARIES(test gtest)

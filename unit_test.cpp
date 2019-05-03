@@ -55,7 +55,7 @@ TEST(SortTestSet, SelectionSortTest) {
     Add* TreeB = new Add(three, two);
 
     Op* ten = new Op(10);
-    Ope* six = new Op(6);
+    Op* six = new Op(6);
     Sub* TreeC = new Sub(ten, six);
 
     VectorContainer* container = new VectorContainer();
@@ -90,7 +90,7 @@ TEST(SortTestSet, BubbleSortTest) {
     Op* sixx = new Op(6);
     Sub* TreeC = new Sub(six, sixx);
 
-    ListContainer* container = new VectorContainer();
+    ListContainer* container = new ListContainer();
     container->add_element(TreeA);
     container->add_element(TreeB);
     container->add_element(TreeC);

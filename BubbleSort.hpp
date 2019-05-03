@@ -5,11 +5,9 @@
 
 class BubbleSort : public Sort {
     public:
-        /* Constructors */
-        BubbleSort () {};
-
+      	BubbleSort () {}; 
         /* Pure Virtual Functions */
-        void BubbleSort(Container* container);
+        void sort(Container* container);
 };
 
 #endif

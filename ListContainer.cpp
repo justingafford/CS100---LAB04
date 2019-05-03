@@ -2,13 +2,13 @@
 
 /* Pure Virtual Functions */
 // push the top pointer of the tree into container
-void add_element(Base* element)
+void ListContainer::add_element(Base* element)
 {
     lcontainer.push_back(element);
 }
         
 // iterate through trees and output the expressions (use stringify())
-void print()
+void ListContainer::print()
 {
     for(list<Base*>::iterator i = lcontainer.begin(); i != lcontainer.end(); i++)
     {
@@ -18,7 +18,7 @@ void print()
         
 // calls on the previously set sorting-algorithm. Checks if sort_function is not
 // null, throw exception if otherwise
-void sort()
+void ListContainer::sort()
 {
     if(sort_function != NULL)
     {
@@ -34,7 +34,7 @@ void sort()
 
 /* Functions Needed to Sort */
 //switch tree locations
-void swap(int i, int j)
+void ListContainer::swap(int i, int j)
 {
   //find positions of i and j
   int count = 0;
@@ -54,12 +54,12 @@ void swap(int i, int j)
   }
   
   //swap i and j
-  iter_swap(i,j);
+  swap(i,j);
   
 }
         
 // get top ptr of tree at index i
-Base* at(int i)
+Base* ListContainer::at(int i)
 {
   int count = 0;
   for(list<Base*>::iterator j = lcontainer.begin(); j != lcontainer.end(); j++)
@@ -73,7 +73,7 @@ Base* at(int i)
 }
         
 // return container size
-int size()
+int ListContainer::size()
 {
     return lcontainer.size();
 }
