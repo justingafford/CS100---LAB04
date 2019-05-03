@@ -31,7 +31,7 @@ void ListContainer::sort()
     else
     {
         //throw exception
-      
+        cout << "ERROR" <<endl;
     }
 }
 
