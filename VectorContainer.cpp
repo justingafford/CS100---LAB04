@@ -29,7 +29,7 @@ void VectorContainer::sort()
     else
     {
         //throw exception
-      
+      cout<<"ERROR"<<endl;
     }
 }
 
