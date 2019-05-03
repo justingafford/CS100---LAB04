@@ -9,7 +9,7 @@
 #include "container.hpp"
 #include "ListContainer.cpp"
 #include "VectorContainer.cpp"
-#include "sort.hpp"
+#include "Sort.hpp"
 #include "SelectionSort.cpp"
 #include "BubbleSort.cpp"
 #include "gtest/gtest.h"
@@ -60,4 +60,8 @@ TEST(SortTestSet, SelectionSortTest) {
     EXPECT_EQ(container->at(2)->evaluate(), 28);
 }
 
+int main(int argc, char **argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}
 
