@@ -5,7 +5,7 @@
 #include "Sort.hpp"
 #include "container.hpp"
 #include <vector>
-
+using namespace std;
 class VectorContainer : public Container
 {
     protected:

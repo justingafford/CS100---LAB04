@@ -1,4 +1,7 @@
 #include "ListContainer.hpp"
+#include <list>
+#include <iterator>
+using namespace std;
 
 /* Pure Virtual Functions */
 // push the top pointer of the tree into container

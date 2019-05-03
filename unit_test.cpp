@@ -1,18 +1,20 @@
 #include "base.hpp"
-#include "Op.cpp"
-#include "Rand.cpp"
-#include "Mult.cpp"
-#include "Div.cpp"
-#include "Add.cpp"
-#include "Sub.cpp"
-#include "Pow.cpp"
+#include "Op.hpp"
+#include "Rand.hpp"
+#include "Mult.hpp"
+#include "Div.hpp"
+#include "Add.hpp"
+#include "Sub.hpp"
+#include "Pow.hpp"
 #include "container.hpp"
-#include "ListContainer.cpp"
-#include "VectorContainer.cpp"
+#include "ListContainer.hpp"
+#include "VectorContainer.hpp"
+#include "SelectionSort.hpp"
 #include "Sort.hpp"
-#include "SelectionSort.cpp"
-#include "BubbleSort.cpp"
+#include "BubbleSort.hpp"
 #include "gtest/gtest.h"
+
+using namespace std;
 
 TEST(VectorContainerTestSet, SwapTest) {
     	// Setup the elements under test

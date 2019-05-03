@@ -1,5 +1,6 @@
 #include "VectorContainer.hpp"
-
+#include <vector>
+using namespace std;
 /* Pure Virtual Functions */
 // push the top pointer of the tree into container
  void VectorContainer::add_element(Base* element)
