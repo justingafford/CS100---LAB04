@@ -6,58 +6,162 @@
 #include "Add.cpp"
 #include "Sub.cpp"
 #include "Pow.cpp"
+<<<<<<< HEAD
 #include "container.hpp"
 #include "ListContainer.cpp"
 #include "VectorContainer.cpp"
 #include "Sort.hpp"
 #include "SelectionSort.cpp"
 #include "BubbleSort.cpp"
+=======
+>>>>>>> 9d9aa5b74f70b2321da5f3e6d407a7ef914ad4da
 #include "gtest/gtest.h"
 
-TEST(VectorContainerTestSet, SwapTest) {
-    	// Setup the elements under test
-	Op* seven = new Op(7);
-	VectorContainer* test_container = new VectorContainer();
-    
-        // Exercise some functionality of hte test elements
-        test_container->add_element(seven);
-    
-        // Assert that the container has at least a single element
-        // otherwise we are likely to cause a segfault when accessing
-        ASSERT_EQ(test_container->size(), 1);
-        EXPECT_EQ(test_container->at(0)->evaluate(), 7);
+class OpMock: public Base {
+    public:
+        OpMock() { };
+
+        virtual double evaluate() { return 7.5; }
+        virtual string stringify() { return "7.5"; }
+};
+
+TEST(IndvClassTest, OpTest)  {
+
+Op* op1 = new Op(5.0); 
+Op* op2 = new Op(2.0); 
+
+EXPECT_EQ(op1 -> evaluate(), 5.0);
+EXPECT_EQ(op2 ->stringify(), "2.000000");
+}
+TEST(IndvClassTest, AddTest)  {
+Op* op1 = new Op(5.0); 
+Op* op2 = new Op(2.0); 
+
+Add* add1 = new Add(op1, op2);
+EXPECT_EQ(add1->evaluate(), 7);
+EXPECT_EQ(add1->stringify(), "5.000000+2.000000");
 }
 
-TEST(SortTestSet, SelectionSortTest) {
-    Op* seven = new Op(7);
-    Op* four = new Op(4);
-    Mult* TreeA = new Mult(seven, four);
+TEST(IndvClassTest, SubTest)  {
+Op* op1 = new Op(5.0); 
+Op* op2 = new Op(2.0); 
 
-    Op* three = new Op(3);
-    Op* two = new Op(2);
-    Add* TreeB = new Add(three, two);
+Sub* sub1 = new Sub(op1 , op2);
+EXPECT_EQ(sub1->evaluate(), 3);
+EXPECT_EQ(sub1->stringify(), "5.000000-2.000000");
+}
 
-    Op* ten = new Op(10);
-    Ope* six = new Op(6);
-    Sub* TreeC = new Sub(ten, six);
+TEST(IndvClassTest, MultTest)  {
+Op* op1 = new Op(5.0); 
+Op* op2 = new Op(2.0); 
 
-    VectorContainer* container = new VectorContainer();
-    container->add_element(TreeA);
-    container->add_element(TreeB);
-    container->add_element(TreeC);
+Mult* mult1 = new Mult(op1 , op2);
+EXPECT_EQ(mult1  ->evaluate(),  10);
+EXPECT_EQ(mult1  ->stringify(), "5.000000*2.000000");
+}
 
-    ASSERT_EQ(container->size(), 3);
-    EXPECT_EQ(container->at(0)->evaluate(), 28);
-    EXPECT_EQ(container->at(1)->evaluate(), 5);
-    EXPECT_EQ(container->at(2)->evaluate(), 4);
+TEST(IndvClassTest, DivTest)  {
+Op* op1 = new Op(5.0); 
+Op* op2 = new Op(2.0); 
 
-    container->set_sort_function(new SelectionSort());
-    container->sort();
+Div* div1 = new Div(op1  , op2);
+EXPECT_EQ(div1  ->evaluate(),  2.5);
+EXPECT_EQ(div1  ->stringify(), "5.000000/2.000000");
+}
 
-    ASSERT_EQ(container->size(), 3);
-    EXPECT_EQ(container->at(0)->evaluate(), 4);
-    EXPECT_EQ(container->at(1)->evaluate(), 5);
-    EXPECT_EQ(container->at(2)->evaluate(), 28);
+TEST(IndvClassTest, PowTest)  {
+Op* op1 = new Op(5.0); 
+Op* op2 = new Op(2.0); 
+
+Pow* pow1 = new Pow(op1, op2);
+EXPECT_EQ(pow1  ->evaluate(),  25);
+EXPECT_EQ(pow1  ->stringify(), "5.000000**2.000000");
+}
+
+TEST(ArithTest, OpNumber)  {
+
+Op* op1 = new Op(5.0); 
+Op* op2 = new Op(7.0); 
+Op* op3 = new Op(2.0); 
+
+EXPECT_EQ(op1 -> evaluate(), 5.0);
+EXPECT_EQ(op1 ->stringify(), "5.000000");
+
+Add* add1 = new Add(op1, op2);
+EXPECT_EQ(add1->evaluate(), 12);
+EXPECT_EQ(add1->stringify(), "5.000000+7.000000");
+
+Sub* sub1 = new Sub(add1 , op2);
+EXPECT_EQ(sub1->evaluate(), 5);
+EXPECT_EQ(sub1->stringify(), "12.000000-7.000000");
+
+Mult* mult1 = new Mult(sub1 , op3);
+EXPECT_EQ(mult1  ->evaluate(),  10);
+EXPECT_EQ(mult1  ->stringify(), "5.000000*2.000000");
+
+Div* div1 = new Div(mult1  , op3);
+EXPECT_EQ(div1  ->evaluate(),  5);
+EXPECT_EQ(div1  ->stringify(), "10.000000/2.000000");
+
+Pow* pow1 = new Pow(div1, op3);
+EXPECT_EQ(pow1  ->evaluate(),  25);
+EXPECT_EQ(pow1  ->stringify(), "5.000000**2.000000");
+}
+
+    public:
+        RandMock() { };
+
+        virtual double evaluate() { return 7.5; }
+        virtual string stringify() { return "7.5"; }
+};
+
+
+TEST(ArithTest, RandNumber)  {
+RandMock* ra1 = new RandMock();
+RandMock* ra2 = new RandMock();
+
+class RandMock: public Base {
+    public:
+        RandMock() { };
+
+        virtual double evaluate() { return 7.5; }
+        virtual string stringify() { return "7.5"; }
+};
+
+
+TEST(ArithTest, RandNumber)  {
+RandMock* ra1 = new RandMock(); 
+RandMock* ra2 = new RandMock(); 
+RandMock* ra3 = new RandMock(); 
+Op* newop = new Op(2.0);
+
+EXPECT_EQ(ra1->evaluate(), 7.5);
+EXPECT_EQ(ra1->stringify(), "7.5");
+
+Add* add1 = new Add(ra1 , ra2 );
+EXPECT_EQ(add1 ->evaluate(), 15);
+EXPECT_EQ(add1 ->stringify(), "7.500000+7.500000");
+
+Sub* sub1 = new Sub(add1 , ra2 );
+EXPECT_EQ(sub1 ->evaluate(), 7.5);
+EXPECT_EQ(sub1 ->stringify(), "15.000000-7.500000");
+
+Mult* mult1 = new Mult(sub1 , ra3 );
+EXPECT_EQ(mult1 ->evaluate(),  56.25);
+EXPECT_EQ(mult1 ->stringify(), "7.500000*7.500000");
+
+Div* div1 = new Div(mult1  , ra3 );
+EXPECT_EQ(div1 ->evaluate(), 7.5);
+EXPECT_EQ(div1 ->stringify(), "56.250000/7.500000");
+
+Pow* pow1 = new Pow(div1, newop );
+EXPECT_EQ(pow1 -> evaluate(), 56.250000);
+EXPECT_EQ(pow1  -> stringify(), "7.500000**2.000000");
+}
+
+int main(int argc, char **argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
 
 int main(int argc, char **argv) {
