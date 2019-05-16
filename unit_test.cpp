@@ -222,11 +222,15 @@ TEST(SortTestSet, LBubbleSortTest) {
     EXPECT_EQ(container->at(2)->evaluate(), 0);
 
     container->set_sort_function(new BubbleSort());
+    cout << "0" << endl;
     container->sort();
-
+    cout << "1" << endl;
     ASSERT_EQ(container->size(), 3);
+    cout << "2" << endl;
     EXPECT_EQ(container->at(0)->evaluate(), 0);
+    cout << "3" << endl;
     EXPECT_EQ(container->at(1)->evaluate(), 2);
+    cout << "4" << endl;
     EXPECT_EQ(container->at(2)->evaluate(), 4);
 }
 int main(int argc, char **argv) {
