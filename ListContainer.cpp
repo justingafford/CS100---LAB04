@@ -27,7 +27,7 @@ void ListContainer::sort()
     if(sort_function != NULL)
     {
         //calls on the previously set sorting-algorithm
-        sortt->sort(this);
+        sort_function->sort(this);
     }
     else
     {
