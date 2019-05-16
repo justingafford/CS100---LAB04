@@ -220,7 +220,7 @@ TEST(SortTestSet, LBubbleSortTest) {
     EXPECT_EQ(container->at(0)->evaluate(), 4);
     EXPECT_EQ(container->at(1)->evaluate(), 2);
     EXPECT_EQ(container->at(2)->evaluate(), 0);
-
+    cout << "oof" << endl;
     container->set_sort_function(new BubbleSort());
     cout << "0" << endl;
     container->sort();
