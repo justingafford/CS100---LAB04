@@ -65,7 +65,7 @@ void ListContainer::swap(int i, int j)
 // get top ptr of tree at index i
 Base* ListContainer::at(int i)
 {
-  list<Base*>::iterator index = container.begin();
+  list<Base*>::iterator index = lcontainer.begin();
 	int counter = i;
 
 	while (counter != 0) {
