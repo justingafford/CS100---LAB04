@@ -23,8 +23,17 @@ void ListContainer::print()
 // calls on the previously set sorting-algorithm. Checks if sort_function is not
 // null, throw exception if otherwise
 void ListContainer::sort()
-{ 
+{  
+    if(sort_function != NULL)
+    {
+        //calls on the previously set sorting-algorithm
         sort_function->sort(this);
+    }
+    else
+    {
+        //throw exception
+      cout<<"ERROR"<<endl;
+    }
 }
 
 /* Functions Needed to Sort */
