@@ -1,5 +1,6 @@
 #include "ListContainer.hpp"
 #include <list>
+#include <algorithm>
 #include <iterator>
 using namespace std;
 
@@ -15,7 +16,7 @@ void ListContainer::print()
 {
     for(list<Base*>::iterator i = lcontainer.begin(); i != lcontainer.end(); i++)
     {
-        (*i)->stringify();
+        cout<<(*i)->stringify();
     }
 }
         
@@ -41,8 +42,8 @@ void ListContainer::swap(int i, int j)
 {
   //find positions of i and j
   int count = 0;
-  list<Base*>::iterator ii;
-  list<Base*>::iterator jj;
+  list<Base*>::iterator ii = lcontainer.begin();
+  list<Base*>::iterator jj = lcontainer.begin();
   for(list<Base*>::iterator pos = lcontainer.begin(); pos != lcontainer.end(); pos++)
   {
     if (i == count)
@@ -65,7 +66,7 @@ void ListContainer::swap(int i, int j)
 Base* ListContainer::at(int i)
 {
   int count = 0;
-  for(list<Base*>::iterator j = lcontainer.begin(); j != lcontainer.end(); j++)
+  for(list<Base*>::iterator j =  lcontainer.begin(); j != lcontainer.end();j++) 
   {
     if (i == count)
     {
@@ -78,5 +79,5 @@ Base* ListContainer::at(int i)
 // return container size
 int ListContainer::size()
 {
-    return lcontainer.size();
+   return lcontainer.size();
 }

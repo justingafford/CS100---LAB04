@@ -13,7 +13,7 @@ void VectorContainer::print()
 {
     for(int i=0; i<vcontainer.size(); i++)
     {
-      vcontainer.at(i)->stringify();
+      cout<<vcontainer.at(i)->stringify();
     }
 }
         
