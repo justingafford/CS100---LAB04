@@ -157,7 +157,43 @@ TEST(VectorContainerTestSet, PrintTest) {
 }        
                                         
 
+TEST(SortTestSet, LBubbleSortTest) {
+    Op* one = new Op(1);
+    Op* four = new Op(4);
+    Mult* TreeA = new Mult(one, four);
 
+    Op* zero = new Op(0);
+    Op* two = new Op(2);
+    Add* TreeB = new Add(zero, two);
+
+    Op* six = new Op(6);
+    Op* sixx = new Op(6);
+    Sub* TreeC = new Sub(six, sixx);
+
+    ListContainer* container = new ListContainer();
+    container->add_element(TreeA);
+    container->add_element(TreeB);
+    container->add_element(TreeC);
+
+    cout<<"\nInside LBubblesort before size check";
+    ASSERT_EQ(container->size(), 3);
+    cout<<"\nInside LBubblesort AFTER size check";
+    EXPECT_EQ(container->at(0)->evaluate(), 4);
+    EXPECT_EQ(container->at(1)->evaluate(), 2);
+    EXPECT_EQ(container->at(2)->evaluate(), 0);
+    cout << "oof" << endl;
+    container->set_sort_function(new BubbleSort());
+    cout << "0" << endl;
+    container->sort();
+    cout << "1" << endl;
+    ASSERT_EQ(container->size(), 3);
+    cout << "2" << endl;
+    EXPECT_EQ(container->at(0)->evaluate(), 0);
+    cout << "3" << endl;
+    EXPECT_EQ(container->at(1)->evaluate(), 2);
+    cout << "4" << endl;
+    EXPECT_EQ(container->at(2)->evaluate(), 4);
+}
 
 TEST(SortTestSet, LSelectionSortTest) {
     Op* seven = new Op(7);
@@ -196,43 +232,7 @@ TEST(SortTestSet, LSelectionSortTest) {
 }
 
 
-TEST(SortTestSet, LBubbleSortTest) {
-    Op* one = new Op(1);
-    Op* four = new Op(4);
-    Mult* TreeA = new Mult(one, four);
 
-    Op* zero = new Op(0);
-    Op* two = new Op(2);
-    Add* TreeB = new Add(zero, two);
-
-    Op* six = new Op(6);
-    Op* sixx = new Op(6);
-    Sub* TreeC = new Sub(six, sixx);
-
-    ListContainer* container = new ListContainer();
-    container->add_element(TreeA);
-    container->add_element(TreeB);
-    container->add_element(TreeC);
-
-    cout<<"\nInside LBubblesort before size check";
-    ASSERT_EQ(container->size(), 3);
-    cout<<"\nInside LBubblesort AFTER size check";
-    EXPECT_EQ(container->at(0)->evaluate(), 4);
-    EXPECT_EQ(container->at(1)->evaluate(), 2);
-    EXPECT_EQ(container->at(2)->evaluate(), 0);
-    cout << "oof" << endl;
-    container->set_sort_function(new BubbleSort());
-    cout << "0" << endl;
-    container->sort();
-    cout << "1" << endl;
-    ASSERT_EQ(container->size(), 3);
-    cout << "2" << endl;
-    EXPECT_EQ(container->at(0)->evaluate(), 0);
-    cout << "3" << endl;
-    EXPECT_EQ(container->at(1)->evaluate(), 2);
-    cout << "4" << endl;
-    EXPECT_EQ(container->at(2)->evaluate(), 4);
-}
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
